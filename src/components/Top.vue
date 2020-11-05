@@ -38,7 +38,9 @@
         <div v-if="photos.length ===0 && !loading">データがないです</div>
         <v-row>
             <v-col cols="3"  v-for="photo in photos" :key="photo">
-                <v-img :src="photo" aspect-ratio="1"></v-img>
+                <a :href="photo" target="_blank" rel="noopener noreferrer">
+                    <v-img :src="photo" aspect-ratio="1"></v-img>
+                </a>
             </v-col>
         </v-row>
     </v-container>
