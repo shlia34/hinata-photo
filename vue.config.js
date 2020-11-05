@@ -1,4 +1,4 @@
 module.exports = {
-    publicPath: '/project-name/',
-    outputDir: 'docs'
-  
+  publicPath: '/hinata-photo/',
+  outputDir: 'docs'
+}
