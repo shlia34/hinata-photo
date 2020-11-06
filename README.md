@@ -8,8 +8,6 @@ lambdaのコードは以下。
 from selenium import webdriver
 from bs4 import BeautifulSoup
 import requests
-import os
-import re
 
 def lambda_handler(event, context):
     options = webdriver.ChromeOptions()
@@ -27,18 +25,15 @@ def lambda_handler(event, context):
 
     driver.get(url)
 
-    html = requests.get(url,timeout=1)
+    html = requests.get(url)
     bs = BeautifulSoup(html.text, "html.parser")
-    images = bs.find_all("img")
+    maincontents = bs.select('.l-maincontents--blog')
+    images = maincontents[0].find_all("img")
 
     img_url_list = []
-    i = 0
     for image in images:
-        if re.match('https://cdn.hinatazaka46.com/files/14/diary', image.get('src')) :
-            img_url_list.append(image.get('src'))
-            # img_url_list[i] = image.get('src')
-            i = i+1;
+        img_url_list.append(image.get('src'))
     driver.close()
-    
+
     return img_url_list
 ```
