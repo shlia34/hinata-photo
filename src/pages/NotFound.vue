@@ -8,7 +8,7 @@
 export default {
     mounted:function(){
         setTimeout(() => {
-            this.$router.push({ path: '/hinata-photo' });
+            this.$router.push({ path: '/' });
         } , 2000)
     },
 }

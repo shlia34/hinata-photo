@@ -7,8 +7,8 @@ import NotFound from './pages/NotFound.vue';
 Vue.use(VueRouter);
 
 const routes = [
-    { path: '/hinata-photo', component: Top },
-    { path: "/hinata-photo/:member/:year/:month", component: PhotoIndex, props: true },
+    { path: '/', component: Top },
+    { path: "/:member/:year/:month", component: PhotoIndex, props: true },
     { path: '*', component: NotFound }
 ];
 

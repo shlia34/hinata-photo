@@ -63,7 +63,7 @@ export default {
     },
     methods:{
         clickBtn(){
-            this.$router.push({ path: '/hinata-photo'+ '/' + this.form.member_code + '/' +this.form.year + '/' + this.form.month });
+            this.$router.push({ path: '/' + this.form.member_code + '/' +this.form.year + '/' + this.form.month });
         },
     },
 

@@ -32,7 +32,8 @@ def lambda_handler(event, context):
 
     img_url_list = []
     for image in images:
-        img_url_list.append(image.get('src'))
+        if image.get('src') != '':
+            img_url_list.append(image.get('src'))
     driver.close()
 
     return img_url_list
