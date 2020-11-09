@@ -1,12 +1,14 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import Top from './components/Top.vue';
-import NotFound from './components/NotFound.vue';
+import Top from './pages/Top.vue';
+import PhotoIndex from './pages/PhotoIndex.vue';
+import NotFound from './pages/NotFound.vue';
 
 Vue.use(VueRouter);
 
 const routes = [
-    { path: '/hinata-photo/:member/:year/:month', component: Top, props: true },
+    { path: '/hinata-photo', component: Top },
+    { path: "/hinata-photo/:member/:year/:month", component: PhotoIndex, props: true },
     { path: '*', component: NotFound }
 ];
 
