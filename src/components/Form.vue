@@ -25,10 +25,6 @@
                     label="月"
                 ></v-select>
             </v-col>
-
-            <v-col cols="2">
-                <v-btn v-on:click="clickBtn" :disabled="isDisable">取得</v-btn>
-            </v-col>
         </v-row>
 
 </template>
@@ -61,10 +57,15 @@ export default {
             return this.form.member_code === undefined ||  this.form.year === undefined || this.form.month === undefined;
         }
     },
-    methods:{
-        clickBtn(){
-            this.$router.push({ path: '/' + this.form.member_code + '/' +this.form.year + '/' + this.form.month });
-        },
+    watch: {
+        "form": {
+            handler: function () {
+                if(this.form.member_code !== undefined && this.form.year !== undefined && this.form.month !== undefined){
+                    this.$router.push({ path: '/' + this.form.member_code + '/' +this.form.year + '/' + this.form.month });
+                }
+            },
+            deep: true
+        }
     },
 
 }

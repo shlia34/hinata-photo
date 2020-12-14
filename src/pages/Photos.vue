@@ -3,7 +3,7 @@
         <Form :member="this.member" :year="this.year" :month="this.month"></Form>
 
         <v-container align-content="center" justify="center">
-            <div v-if="loading">ロード中です、、、5,6秒待ってね</div>
+            <div v-if="loading">ロード中</div>
             <div v-if="!loading">画像を取得しました</div>
         </v-container>
         <div v-if="photos.length ===0 && !loading">データがないです</div>
@@ -59,8 +59,8 @@ export default {
           });
         },
         getPhotoUrl() {
-          var endpoint = 'https://497r9hvb2g.execute-api.ap-northeast-1.amazonaws.com/default/hinata';
-          var url =  endpoint + '?' + 'member_code=' +  this.member + '&year='+  this.year +  '&month=' + this.month;
+          var endpoint = 'https://koi33pn947.execute-api.ap-northeast-1.amazonaws.com/prod/photos';
+          var url = endpoint + '/' + this.member + '/' + this.year + '/' + this.month
 
           var vm = this;
           vm.loading =  true;
