@@ -37,6 +37,7 @@ export default {
     },
     mounted:function(){
         this.getItems();
+        this.redirectIfInvalidProps();
     },
     computed:{
         memberName : function(){
@@ -68,6 +69,12 @@ export default {
         parseMonthForView(month){
             return month.substr( 0, 4 ) + "年" + month.substr( 4, 6 )+ "月";
         },
+        redirectIfInvalidProps(){
+            const memberCheck = members.find((member) => member.code === this.member);
+            if(memberCheck === undefined){
+                this.$router.push('/member_not_found')
+            }
+        }
     },
 
 }

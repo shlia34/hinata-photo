@@ -1,12 +1,21 @@
 <template>
   <v-app>
     <div id="app">
+        <Navbar></Navbar>
         <router-view></router-view>
     </div>
   </v-app>
 </template>
 
-<script></script>
+<script>
+  import Navbar from './components/Navbar.vue'
+
+  export default {
+    components: {
+      Navbar,
+    }
+  }
+</script>
 
 <style>
 #app {

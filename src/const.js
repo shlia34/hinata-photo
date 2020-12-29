@@ -25,5 +25,13 @@ export const members =  [
     { code: '24', name: '山口 陽世'  },
 ];
 
-export const years = ["2016","2017","2018","2019","2020"];
+
+var startYear = 2016;
+var thisYear = new Date().getFullYear();
+
+export var years = new Array();
+for (let $i = startYear; $i < thisYear + 1; $i++) {
+    years.push(String($i));
+}
+
 export const months = ["01","02","03","04","05","06","07","08","09","10","11","12"];
